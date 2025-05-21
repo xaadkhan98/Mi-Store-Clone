@@ -11,10 +11,14 @@ interface CartState {
 
 const items: CartState[] = [];
 
-const initialState = {
-  items,
-  totalQuantity: 0,
-};
+const existingCart = localStorage.getItem("cart");
+
+const initialState = existingCart
+  ? JSON.parse(existingCart)
+  : {
+      items: [],
+      totalQuantity: 0,
+    };
 
 const cartSlice = createSlice({
   name: "cart",
@@ -23,11 +27,14 @@ const cartSlice = createSlice({
     addToCart(state, action: PayloadAction<any>) {
       // console.log("Added to Cart", state, action.payload);
       const newItem = action.payload;
-
-      const existingItem = state.items.find((item) => {
+      // Check of existing item in the cart
+      const existingItem = state.items.find((item: CartState) => {
         return item.id === newItem.id;
       });
+      // Update total quantity for Cart badge
       state.totalQuantity++;
+
+      // If product does not exist push a new item to the cart
       if (!existingItem) {
         state.items.push({
           name: newItem.name,
@@ -37,23 +44,39 @@ const cartSlice = createSlice({
           totalPrice: newItem.price,
           img: newItem.images[0],
         });
-      } else {
+      }
+      // If product already exists we need to update the total quantity
+      else {
         existingItem.quantity++;
         existingItem.totalPrice = existingItem.totalPrice + newItem.price;
       }
+      // Save to localStorage
+      localStorage.setItem("cart", JSON.stringify(state));
     },
     removeFromCart(state, action: PayloadAction<any>) {
-      console.log("Removed from Cart");
+      // console.log("Removed from Cart");
+
+      // Update total quantity for cart badge
       state.totalQuantity--;
+
+      // Id recived from component
       const id = action.payload;
+
+      // Find product in the cart array.
       const existingItem =
-        state.items.find((item) => item.id === id) || <any>[];
+        state.items.find((item: CartState) => item.id === id) || <any>[];
+
+      // If there is only one item return a fresh and filtered array.
       if (existingItem?.quantity === 1) {
-        state.items = state.items.filter((item) => item.id !== id);
-      } else {
+        state.items = state.items.filter((item: CartState) => item.id !== id);
+      }
+      // if there are more products for an Id, decrease the price and quantity only
+      else {
         existingItem.quantity--;
         existingItem.totalPrice -= existingItem.price;
       }
+      // Save to localStorage
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });

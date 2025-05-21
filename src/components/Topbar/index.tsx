@@ -1,72 +1,42 @@
 import React from "react";
-import styled from "styled-components";
 import {
-  HeartOutlined,
-  LogoutOutlined,
   SearchOutlined,
   ShoppingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+
 import { Link } from "react-router-dom";
-import { selectLoginData, selectTotalQuantity } from "../../redux/selectors";
+import { selectTotalQuantity } from "../../redux/selectors";
 import { useSelector } from "react-redux";
-import { Badge } from "antd";
-
-const TopbarStyled = styled.div`
-  color: #b0b0b0;
-  display: flex;
-  align-items: center;
-  width: 70%;
-  margin: auto;
-  justify-content: space-between;
-  height: 40px;
-`;
-
-const TopbarLinks = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const H6 = styled.h6`
-  border-right: 1px solid #424242;
-  font-size: 0.75rem;
-  padding: 0 20px;
-  font-weight: normal;
-  text-align: start;
-`;
-
-const TopBar = styled.div`
-  background-color: #212121;
-`;
-
-const TopBarIcons = styled.div``;
+import { Badge, Space } from "antd";
+import {
+  StyledLink,
+  StyledText,
+  TopBar,
+  TopbarLinks,
+  TopbarStyled,
+} from "./components/styles";
 
 const Topbar: React.FC = () => {
   const totalQuantity = useSelector(selectTotalQuantity);
-  const { isAuthenticated } = useSelector(selectLoginData);
-  console.log(isAuthenticated);
 
-  console.log(totalQuantity);
-  const navigate = useNavigate();
   return (
     <TopBar>
       <TopbarStyled>
         <TopbarLinks>
-          <H6>Mi Pakistan</H6>
-          <H6>Mi Community</H6>
-          <H6>Support</H6>
-          <H6>Track My Order</H6>
-          <H6>Wholesale Query</H6>
-          <H6>Report Faulty Products</H6>
+          <StyledText>Mi Pakistan</StyledText>
+          <StyledText>Mi Community</StyledText>
+          <StyledText>Support</StyledText>
+          <StyledText>Track My Order</StyledText>
+          <StyledText>Wholesale Query</StyledText>
+          <StyledText>Report Faulty Products</StyledText>
         </TopbarLinks>
 
-        <TopBarIcons>
+        <Space>
           <SearchOutlined
             style={{ width: "2rem", height: "2rem", cursor: "pointer" }}
           />
-          <Link style={{ position: "relative" }} to="/checkout">
+          <StyledLink style={{}} to="/checkout">
             <Badge
               color="red"
               style={{
@@ -89,18 +59,14 @@ const Topbar: React.FC = () => {
                 }}
               />
             </Badge>
-          </Link>
+          </StyledLink>
 
-          <Link rel="stylesheet" to="/dashboard" style={{ color: "inherit" }}>
+          <Link to="/dashboard" style={{ color: "inherit" }}>
             <UserOutlined
               style={{ width: "25px", height: "25px", cursor: "pointer" }}
             />
           </Link>
-
-          {/* <HeartOutlined
-            style={{ width: "25px", height: "25px", cursor: "pointer" }}
-          /> */}
-        </TopBarIcons>
+        </Space>
       </TopbarStyled>
     </TopBar>
   );

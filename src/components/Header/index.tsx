@@ -38,8 +38,6 @@ const StyledHeader = styled(Menu)`
   display: flex;
   justify-content: center;
 
-  /* align-items: start; */
-
   & .ant-card .ant-card-cover {
     width: 0% !important;
   }
@@ -59,20 +57,6 @@ const StyledHeader = styled(Menu)`
 
   .ant-menu-light > .ant-menu .ant-menu-item-selected {
     background-color: #ffffff !important;
-  }
-
-  /* && .ant-menu-light .ant-menu-horizontal > .ant-menu-item-selected::after {
-    position: relative;
-    inset-inline: 0px;
-    bottom: 0;
-    border-bottom: 0;
-  }
-  && li .ant-menu-submenu-popup .ant-menu-vertical > .ant-menu-item {
-    width: 10rem;
-    height: 10rem;
-  } */
-  .ant-menu-submenu-popup .ant-menu-vertical .ant-menu-item {
-    /* height: 5rem; */
   }
 `;
 
@@ -206,9 +190,12 @@ const HeaderComponent: React.FC = () => {
   const onClick: MenuProps["onClick"] = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
+    // Check for Header Category
     if (e.keyPath.length === 1) {
       navigate(`/collections/${e.key}`);
-    } else {
+    }
+    // Check for Products Dropdown
+    else {
       navigate(`/products/${e.key}`);
     }
   };

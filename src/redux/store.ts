@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartSlice from "./cartSlice";
-import mySaga from "./login-saga";
 import createSagaMiddleware from "redux-saga";
-import loginSlice from "./loginSlice";
 import rootReducers from "./rootReducer";
+import dashboardSaga from "./dashboardProductSaga";
+import rootSaga from "./rootSaga";
 
+//Create Middleware to communicate between saga and sideeffects
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
@@ -13,6 +13,7 @@ const store = configureStore({
     getDefaultMiddleware().concat(sagaMiddleware),
 });
 
-sagaMiddleware.run(mySaga);
+// Run Middleware
+sagaMiddleware.run(rootSaga);
 
 export default store;

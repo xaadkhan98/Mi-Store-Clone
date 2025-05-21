@@ -1,22 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import LayoutWrapper from "../../components/Layout";
-import Homepage from "../../app/Homepage";
-import About from "../../app/About";
-import Products from "../../app/Products";
-import Collections from "../../app/Collections";
-import CheckoutContainer from "../../app/Checkout";
-import Dashboard from "../../app/Dashboard";
-import Login from "../../app/Login";
+import Homepage from "../../Container/Homepage";
+import About from "../../Container/About";
+import Products from "../../Container/Products";
+import Collections from "../../Container/Collections";
+import CheckoutContainer from "../../Container/Checkout";
+import Dashboard from "../../Container/Dashboard";
+import Login from "../../Container/Login";
 import ProtectedRoute from "./ProtectedRoutes";
-import DashboardLayout from "../../app/Dashboard/components/Layout";
-import ProductsTab from "../../app/Dashboard/components/Products";
-import CategoryTab from "../../app/Dashboard/components/Category";
-import OrdersTab from "../../app/Dashboard/components/Orders";
-import dashboardChildRoutes from "../../app/Dashboard/routes";
+import DashboardLayout from "../../Container/Dashboard/components/Layout";
+import ProductsTab from "../../Container/Dashboard/components/Products";
+import CategoryTab from "../../Container/Dashboard/components/Category";
+import OrdersTab from "../../Container/Dashboard/components/Orders";
+import dashboardChildRoutes from "../../Container/Dashboard/routes";
 import { selectLoginData } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 import path from "path";
-import Payment from "../../app/Payment/Payment";
+import Payment from "../../Container/Payment/Payment";
+import Checkout from "../../Container/Checkout";
 
 //Check for Authentication
 const isAuthenticated = localStorage.getItem("isAuthenticated");
@@ -29,7 +30,7 @@ const childrenRoutes = [
   },
   { path: "/collections/:categoryy", element: <Collections /> },
   { path: "/products/:productId", element: <Products /> },
-  { path: "/checkout", element: <CheckoutContainer /> },
+  { path: "/checkout", element: <Checkout /> },
   { path: "/checkout/payment", element: <Payment /> },
 ];
 
