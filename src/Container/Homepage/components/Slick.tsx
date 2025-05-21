@@ -2,11 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Product from "../../../components/Product";
 import { productsDescription } from "../../../utils/products";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 .slick-prev::before, .slick-next::before {
@@ -40,12 +39,15 @@ const SlickSlider: React.FC = () => {
         Featured Products
       </Typography.Title>
       <Slider {...settings}>
+        {/* Map out all the products from Product Description file */}
         {productsDescription.map((product) => {
           return (
+            // Target only "smartphones" category for the slider
             product.category === "smartphones" && (
               <Link
                 to={`products/${product.id}`}
                 onClick={() => {
+                  // When navigated to product page it should scroll to top
                   window.scrollTo(0, 0);
                 }}
               >

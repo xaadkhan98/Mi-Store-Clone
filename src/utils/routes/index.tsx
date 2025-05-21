@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 import path from "path";
 import Payment from "../../Container/Payment/Payment";
 import Checkout from "../../Container/Checkout";
+import ErrorPage from "../../Container/ErrorPage";
 
 //Check for Authentication
 const isAuthenticated = localStorage.getItem("isAuthenticated");
@@ -32,6 +33,7 @@ const childrenRoutes = [
   { path: "/products/:productId", element: <Products /> },
   { path: "/checkout", element: <Checkout /> },
   { path: "/checkout/payment", element: <Payment /> },
+  { path: "*", element: <ErrorPage /> },
 ];
 
 const AppRoutes = createBrowserRouter([
