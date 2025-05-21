@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import {
   AppstoreOutlined,
   DashboardOutlined,
-  OrderedListOutlined,
   ProductFilled,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Layout, Menu, theme } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardHeader from "../Header";
 
@@ -46,17 +45,9 @@ const items: MenuItem[] = [
     type: "divider",
   },
   getItem(
-    <NavLink to="/dashboard/category">Category</NavLink>,
-    "category",
+    <NavLink to="/dashboard/users">Users</NavLink>,
+    "users",
     <AppstoreOutlined />
-  ),
-  {
-    type: "divider",
-  },
-  getItem(
-    <NavLink to="/dashboard/orders">Orders</NavLink>,
-    "orders",
-    <OrderedListOutlined />
   ),
   {
     type: "divider",

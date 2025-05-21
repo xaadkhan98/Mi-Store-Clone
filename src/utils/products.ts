@@ -105,7 +105,7 @@ export const productsDescription: ProductType[] = [
     name: "Xiaomi Semi-Automatic Espresso Machine",
     slug: "xiaomi-semi-automatic-espresso-machine",
     brand: "Xiaomi",
-    category: "lifestyle",
+    category: "new-arrivals",
     images: [
       "https://mistore.pk/cdn/shop/files/XiaomiSemi-automaticEspressoMachine_300x.webp?v=1746787091",
       "/images/xiaomi-semi-automatic-espresso-machine-back.jpg",
@@ -150,7 +150,7 @@ export const productsDescription: ProductType[] = [
     name: "Xiaomi Smart Scent Diffuser",
     slug: "xiaomi-smart-scent-diffuser",
     brand: "Xiaomi",
-    category: "lifestyle",
+    category: "new-arrivals",
     images: [
       "https://mistore.pk/cdn/shop/files/XiaomiSmartScentDiffuser_300x.webp?v=1746788309",
       "/images/xiaomi-smart-scent-diffuser-back.jpg",

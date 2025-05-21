@@ -1,9 +1,6 @@
-import path from "path";
-import CategoryTab from "../components/Category";
-import OrdersTab from "../components/Orders";
 import ProductsTab from "../components/Products";
-import DashboardLayout from "../components/Layout";
 import Home from "../components/Home";
+import Users from "../components/Users";
 
 const dashboardChildRoutes = [
   {
@@ -15,12 +12,8 @@ const dashboardChildRoutes = [
     element: <ProductsTab />,
   },
   {
-    path: "category",
-    element: <CategoryTab />,
-  },
-  {
-    path: "orders",
-    element: <OrdersTab />,
+    path: "users",
+    element: <Users />,
   },
 ];
 

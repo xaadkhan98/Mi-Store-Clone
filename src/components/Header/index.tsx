@@ -66,86 +66,13 @@ const items: MenuItem[] = [
     icon: <img src="/logo.svg" />,
   },
   {
-    label: <NavLink to="collections/newarrivals">New Arrivals </NavLink>,
+    label: <NavLink to="collections/new-arrivals">New Arrivals </NavLink>,
     key: "new-arrivals",
-    children: [
-      {
-        label: (
-          <Card
-            hoverable
-            style={{ width: 180 }}
-            cover={
-              <img
-                alt="example"
-                src="https://mistore.pk/cdn/shop/files/XiaomiTVAPro652025_140x.jpg?v=1738835427"
-              />
-            }
-          >
-            {/* <Meta title="Europe Street beat" description="www.instagram.com" /> */}
-          </Card>
-        ),
-        key: "785tcjnk",
-      },
-      {
-        label: (
-          <Card
-            hoverable
-            style={{ width: 180 }}
-            cover={
-              <img
-                alt="example"
-                src="https://mistore.pk/cdn/shop/files/XiaomiTVAPro652025_140x.jpg?v=1738835427"
-              />
-            }
-          >
-            {/* <Typography.Link>Go TO New Route</Typography.Link> */}
-          </Card>
-        ),
-        key: "12345",
-      },
-    ],
   },
   {
     label: <NavLink to="collections/smartphones">SmartPhones</NavLink>,
     key: "smartphones",
     // icon: <AppstoreOutlined />,
-    children: [
-      {
-        label: (
-          <Card
-            hoverable
-            style={{ width: 180 }}
-            cover={
-              <img
-                alt="example"
-                src="https://mistore.pk/cdn/shop/files/XiaomiTVAPro652025_140x.jpg?v=1738835427"
-                style={{ objectFit: "cover" }}
-              />
-            }
-          >
-            <Meta title="Europe Street beat" description="www.instagram.com" />
-          </Card>
-        ),
-        key: "785tcjnk",
-      },
-      {
-        label: (
-          <Card
-            hoverable
-            style={{ width: 180 }}
-            cover={
-              <img
-                alt="example"
-                src="https://mistore.pk/cdn/shop/files/XiaomiTVAPro652025_140x.jpg?v=1738835427"
-              />
-            }
-          >
-            <Typography.Link>Go TO New Route</Typography.Link>
-          </Card>
-        ),
-        key: "12345",
-      },
-    ],
   },
   {
     label: (
@@ -170,11 +97,6 @@ const items: MenuItem[] = [
   {
     label: <NavLink to="audio">Audio</NavLink>,
     key: "audio",
-    // icon: <AppstoreOutlined />,
-  },
-  {
-    label: <NavLink to="camera-and-visual">Deals</NavLink>,
-    key: "deals",
     // icon: <AppstoreOutlined />,
   },
   {

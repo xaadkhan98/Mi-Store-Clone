@@ -1,16 +1,16 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 
 import {
-  dashboardProductsFailed,
-  dashboardProductsSaved,
-  dashboardProductsSaving,
-} from "./dashboardProductSlice";
+  dashboardUsersSaving,
+  dashboardUsersSaved,
+  dashboardUsersFailed,
+} from "./dashboardUsersSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 function* handleProducts({}: PayloadAction<any>): Generator<any, void, any> {
   try {
     // Wait for response
-    const response = yield call(fetch, "https://fakestoreapi.in/api/products");
+    const response = yield call(fetch, "https://fakestoreapi.com/users");
     if (!response.ok) {
       const errorData = yield call(() => response.json());
       throw new Error(
@@ -22,17 +22,18 @@ function* handleProducts({}: PayloadAction<any>): Generator<any, void, any> {
       // Returns a promie that result to Javascript object.
       return response.json();
     });
+
     console.log(data);
 
-    yield put(dashboardProductsSaved(data));
+    yield put(dashboardUsersSaved(data));
   } catch (e: any) {
-    yield put(dashboardProductsFailed(e));
+    yield put(dashboardUsersFailed(e));
   }
 }
 
 // Watcher Function > continously watching dispatched actions.
-function* dashboardSaga() {
-  yield takeLatest(dashboardProductsSaving, handleProducts);
+function* dashboardUsersSaga() {
+  yield takeLatest(dashboardUsersSaving, handleProducts);
 }
 
-export default dashboardSaga;
+export default dashboardUsersSaga;

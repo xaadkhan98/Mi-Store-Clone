@@ -1,9 +1,10 @@
-import { Col, Flex, Row, Space, Tag, Typography } from "antd";
+import { Col, Flex, Row, Space, Typography } from "antd";
 import { Card } from "antd";
 import styled from "styled-components";
 
 import { FundOutlined, ShoppingOutlined, TagOutlined } from "@ant-design/icons";
 import { Chart, Interval, Tooltip, Axis } from "bizcharts";
+import UserTable from "./components";
 
 const { Title, Text } = Typography;
 
@@ -83,7 +84,7 @@ const Home = () => {
           </Flex>
         </Col>
         <Col span={12}>
-          <Chart
+          {/* <Chart
             height={400}
             autoFit
             data={data}
@@ -93,7 +94,7 @@ const Home = () => {
             <Axis name="sales" />
             <Tooltip shared />
             <Interval position="year*sales" />
-          </Chart>
+          </Chart> */}
         </Col>
       </Row>
     </>

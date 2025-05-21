@@ -9,11 +9,19 @@ import {
   Select,
   Space,
   Typography,
+  FormProps,
 } from "antd";
 
 import { useSelector } from "react-redux";
 import { StyledFrag, StyledSpace, StyleParagraph } from "./components/styles";
+import styled from "styled-components";
 const { Title, Text, Paragraph } = Typography;
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  background-color: green !important;
+  margin-top: 2rem;
+`;
 
 const Payment: React.FC = () => {
   // Select Items array in React State
@@ -33,45 +41,106 @@ const Payment: React.FC = () => {
     messageApi.info("Order Placed");
   }
 
+  //
+  type FieldType = {
+    contact?: string;
+    remember?: string;
+    delivery?: string;
+    firstName?: string;
+    lastName?: string;
+    address?: string;
+    furtherAddress?: string;
+    city?: string;
+    postalCode?: string;
+    phone?: number;
+  };
+
+  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+    console.log("Success:", values);
+    handleOnClick();
+    // Clear cart item after placing order
+    localStorage.removeItem("cart");
+  };
+
+  const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
+    errorInfo
+  ) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
     <Flex gap="middle">
       <StyledFrag style={{ borderRight: "2px solid orange" }}>
         {contextHolder}
-        <Form>
-          <StyledSpace>
+        <Text>Please fill out the below information to place an order.</Text>
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ maxWidth: 600 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
+        >
+          <Form.Item<FieldType>
+            name="contact"
+            rules={[{ required: true, message: "Enter your email address!" }]}
+          >
             <Title level={5}>Contact</Title>
-            <Input
-              required
-              style={{ width: "27vw" }}
-              placeholder="Email"
-              type="email"
-            />
-          </StyledSpace>
-          <StyledSpace>
+            <Input placeholder="Email" type="email" />
+          </Form.Item>
+          <Form.Item<FieldType> name="delivery">
             <Title level={5}>Delivery</Title>
             <Select
               defaultValue="Pakistan"
               style={{ width: "27vw", marginBottom: "1rem" }}
-              // onChange={handleChange}
               options={[{ value: "Pakistan", label: "Pakistan" }]}
             />
-          </StyledSpace>
-          <Space>
-            <Input required placeholder="First name" />
-            <Input required placeholder="Last name" />
-          </Space>
-          <Input style={{ margin: "1rem 0" }} required placeholder="Address" />
-          <Input placeholder="Apartment, Suite, etc. (optional)" />
-          <Space>
-            <Input style={{ margin: "1rem 0" }} required placeholder="City" />
-            <Input placeholder="Postal Code (optional)" />
-          </Space>
-          <Input
-            style={{ margin: "0 0 1rem 0" }}
-            required
-            placeholder="Phone"
-          />
-          <Text style={{ fontWeight: "500" }}>Shipping method</Text>
+          </Form.Item>
+
+          <Flex>
+            <Form.Item<FieldType>
+              name="firstName"
+              style={{ width: "100%" }}
+              rules={[{ required: true, message: "Enter your first name!" }]}
+            >
+              <Input placeholder="First Name" />
+            </Form.Item>
+            <Form.Item<FieldType> name="lastName" style={{ width: "100%" }}>
+              <Input placeholder="Last Name" />
+            </Form.Item>
+          </Flex>
+          <Form.Item<FieldType>
+            name="address"
+            style={{ width: "100%" }}
+            rules={[{ required: true, message: "Enter your Postal Adress" }]}
+          >
+            <Input placeholder="Postal Address" />
+          </Form.Item>
+          <Form.Item<FieldType> name="furtherAddress" style={{ width: "100%" }}>
+            <Input placeholder="Apartment, Suite, etc. (optional)" />
+          </Form.Item>
+          <Flex>
+            <Form.Item<FieldType>
+              name="city"
+              style={{ width: "100%" }}
+              rules={[{ required: true, message: "Enter your City" }]}
+            >
+              <Input placeholder="City" />
+            </Form.Item>
+            <Form.Item<FieldType> name="postalCode" style={{ width: "100%" }}>
+              <Input placeholder="Postal Code (Optional)" />
+            </Form.Item>
+          </Flex>
+          <Form.Item<FieldType>
+            name="phone"
+            style={{ width: "100%" }}
+            rules={[{ required: true, message: "Enter your Phone Number" }]}
+          >
+            <Input placeholder="Phone Number (03XX-XXX-XXXX)" />
+          </Form.Item>
+
           <Flex
             style={{
               width: "100%",
@@ -87,6 +156,7 @@ const Payment: React.FC = () => {
             <Text>Standard Delivery Time is 2 to 3 Working Days</Text>
             <Text style={{ color: "red", fontWeight: "500" }}>Rs 190.00</Text>
           </Flex>
+
           <StyledSpace>
             <Title level={5}>Payment</Title>
             <Text
@@ -99,18 +169,11 @@ const Payment: React.FC = () => {
             </Text>
           </StyledSpace>
           <Radio checked>Cash on Delivery (COD)</Radio>
-          <Button
-            style={{
-              backgroundColor: "green",
-              width: "100%",
-              color: "white",
-              marginTop: "1rem",
-            }}
-            href="/"
-            onClick={handleOnClick}
-          >
-            Place Order
-          </Button>
+          <Form.Item label={null}>
+            <StyledButton type="primary" htmlType="submit">
+              Submit
+            </StyledButton>
+          </Form.Item>
         </Form>
       </StyledFrag>
       <Flex justify="start" vertical style={{ marginTop: "2rem" }}>

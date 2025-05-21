@@ -15,10 +15,14 @@ const selectLoginData = createSelector(
   (userState) => userState.user
 );
 
+// Products selector for Dashboard
 const dashboardProductsSelector = (state: any) => state.dashboardProducts.data;
+const dashboardUsersSelector = (state: any) => state.dashboardUsers.data;
+
 export {
   selectLoginData,
   selectTotalQuantity,
   selectTotalPrice,
   dashboardProductsSelector,
+  dashboardUsersSelector,
 };

@@ -81,7 +81,7 @@ const DashboardHeader = () => {
       label: "Logout",
       icon: <LogoutOutlined />,
       onClick: (e) => {
-        localStorage.clear();
+        localStorage.removeItem("isAuthenticated");
         navigate("/login");
       },
     },
