@@ -1,4 +1,4 @@
-import { Space, Typography } from "antd";
+import { Row, Space } from "antd";
 import styled from "styled-components";
 
 export const StyledSpace = styled(Space)`
@@ -42,4 +42,10 @@ export const StyledMedals = styled.div`
 `;
 export const StyledContent = styled.div`
   padding: 0 5%;
+`;
+
+export const StyledRow = styled(Row)`
+  display: flex;
+  align-items: start;
+  margin-top: 3rem;
 `;

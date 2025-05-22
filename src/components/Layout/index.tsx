@@ -3,8 +3,9 @@ import { Layout } from "antd";
 import { Outlet } from "react-router-dom";
 import Topbar from "../Topbar";
 import HeaderComponent from "../Header";
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import FooterComponent from "../Footer";
+import GlobalStyles from "../../utils/GlobalStyles";
 
 const { Header, Footer, Content } = Layout;
 
@@ -15,21 +16,14 @@ const StyledLayout = styled(Layout)`
   }
 `;
 
-const GlobalStyle = createGlobalStyle`
- .ant-layout-footer{
-padding: 0;
- }
-  
-`;
-
 const StyledContent = styled(Content)`
   width: 90%;
   margin: auto;
 `;
 
 const LayoutWrapper: React.FC = () => (
-  <>
-    <GlobalStyle />
+  <React.Fragment>
+    <GlobalStyles />
     <StyledLayout>
       <Topbar />
       <Header>
@@ -42,7 +36,7 @@ const LayoutWrapper: React.FC = () => (
         <FooterComponent />
       </Footer>
     </StyledLayout>
-  </>
+  </React.Fragment>
 );
 
 export default LayoutWrapper;

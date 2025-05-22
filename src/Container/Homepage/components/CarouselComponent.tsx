@@ -8,7 +8,7 @@ const StyledImage = styled.img`
 const CarouselComponent = () => {
   return (
     <div>
-      <Carousel arrows infinite={true} autoplay autoplaySpeed={3000}>
+      <Carousel arrows infinite={true} autoplay autoplaySpeed={2000}>
         <div>
           <StyledImage src="/Carousel/CarouselImg (1).webp" />
         </div>

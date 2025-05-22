@@ -6,29 +6,23 @@ import {
   StyledButtons,
   StyledContent,
   StyledMedals,
+  StyledRow,
   StyledSpace,
 } from "./components/styles";
+import React from "react";
 const { Text } = Typography;
 
 const HeroSection = () => {
   return (
-    <>
-      <Row wrap gutter={[15, 15]}>
+    <React.Fragment>
+      <StyledRow wrap gutter={[15, 15]}>
         <Col span={12}>
-          <Image
-            src="./Hero-Section/Hero-Section (5).webp"
-            alt="hero-img"
-            width="100%"
-          />
+          <Image src="./Hero-Section/Hero-Section (5).webp" alt="hero-img" />
         </Col>
         <Col span={12}>
-          <Image
-            src="./Hero-Section/Hero-Section (4).webp"
-            alt="hero-img"
-            width="100%"
-          />
+          <Image src="./Hero-Section/Hero-Section (4).webp" alt="hero-img" />
         </Col>
-      </Row>
+      </StyledRow>
       <Row style={{ paddingTop: "1.5rem" }} gutter={[15, 15]}>
         <Col span={12}>
           <Image src="./Hero-Section/Hero-Section (3).webp" alt="" />
@@ -169,7 +163,7 @@ const HeroSection = () => {
           travel essentials, Mistore.pk has got you covered!
         </Text>
       </StyledContent>
-    </>
+    </React.Fragment>
   );
 };
 

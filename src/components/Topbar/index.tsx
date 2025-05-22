@@ -8,8 +8,10 @@ import {
 import { Link } from "react-router-dom";
 import { selectTotalQuantity } from "../../redux/selectors";
 import { useSelector } from "react-redux";
-import { Badge, Space } from "antd";
+import { Badge, Space, Flex } from "antd";
 import {
+  StyledBadge,
+  StyledFlex,
   StyledLink,
   StyledText,
   TopBar,
@@ -32,41 +34,18 @@ const Topbar: React.FC = () => {
           <StyledText>Report Faulty Products</StyledText>
         </TopbarLinks>
 
-        <Space>
-          <SearchOutlined
-            style={{ width: "2rem", height: "2rem", cursor: "pointer" }}
-          />
+        <StyledFlex align="center" justify="space-around">
+          <SearchOutlined />
           <StyledLink style={{}} to="/checkout">
-            <Badge
-              color="red"
-              style={{
-                position: "absolute",
-                top: "20%",
-                right: "30%",
-                height: "0.75rem",
-                minWidth: "0.75rem",
-                lineHeight: "0.70rem",
-                fontSize: "0.6rem",
-              }}
-              count={totalQuantity}
-            >
-              <ShoppingOutlined
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  cursor: "pointer",
-                  color: "orange",
-                }}
-              />
-            </Badge>
+            <StyledBadge color="red" count={totalQuantity}>
+              <ShoppingOutlined style={{}} />
+            </StyledBadge>
           </StyledLink>
 
           <Link to="/dashboard" style={{ color: "inherit" }}>
-            <UserOutlined
-              style={{ width: "25px", height: "25px", cursor: "pointer" }}
-            />
+            <UserOutlined />
           </Link>
-        </Space>
+        </StyledFlex>
       </TopbarStyled>
     </TopBar>
   );

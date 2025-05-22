@@ -3,7 +3,6 @@ import { Card } from "antd";
 import styled from "styled-components";
 
 import { FundOutlined, ShoppingOutlined, TagOutlined } from "@ant-design/icons";
-import { Chart, Interval, Tooltip, Axis } from "bizcharts";
 import UserTable from "./components";
 
 const { Title, Text } = Typography;
@@ -31,6 +30,7 @@ const StyledText = styled(Text)`
   color: orange;
 `;
 
+// Mock data for Dashboard Cards
 const DashCardsArray = [
   {
     icon: <ShoppingOutlined />,

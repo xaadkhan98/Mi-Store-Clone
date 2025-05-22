@@ -1,20 +1,18 @@
-import { Flex, Row, Col, Typography } from "antd";
+import { Row, Col } from "antd";
 import UserTable from "../Home/components";
-
-const { Title } = Typography;
+import { StyledTitle } from "../Products/components/styles";
+import { StyledFlex } from "./components/styles";
 
 const Users = () => {
   return (
     <div>
-      <Title level={4} style={{ color: "#797272" }}>
-        Registered Users
-      </Title>
-      <Row style={{ width: "100%" }}>
-        <Flex justify="center" style={{ marginTop: "1rem", width: "100%" }}>
+      <StyledTitle level={4}>Registered Users</StyledTitle>
+      <Row>
+        <StyledFlex justify="center">
           <Col span={22}>
             <UserTable />
           </Col>
-        </Flex>
+        </StyledFlex>
       </Row>
     </div>
   );

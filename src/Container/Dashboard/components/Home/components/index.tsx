@@ -66,7 +66,7 @@ const UserTable = () => {
           username: user?.username,
         }))
       : [];
-  console.log(data);
+
   return <Table pagination={false} dataSource={data} columns={columns} />;
 };
 

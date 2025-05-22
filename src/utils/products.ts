@@ -27,7 +27,7 @@ export interface ProductType {
   category: CategoryId;
   images: string[];
   price: number;
-  dateAdded: string; // ISO 8601
+  dateAdded: string;
   rating: number; // average user rating
   specs: Specs;
   keyFeatures?: {};
@@ -235,6 +235,52 @@ export const productsDescription: ProductType[] = [
       os: "",
     },
   },
+  {
+    id: "xiaomi-67w-car-charger-usb-a-type-c",
+    name: "Xiaomi 67W Car Charger (USB-A + Type C)",
+    slug: "xiaomi-67w-car-charger-usb-a-type-c",
+    brand: "Xiaomi",
+    category: "lifestyle",
+    images: [
+      "https://mistore.pk/cdn/shop/products/mi67wcarcharger_300x.png?v=1671602475",
+      "/images/xiaomi-67w-car-charger-back.jpg",
+    ],
+    price: 6599,
+    dateAdded: "2025-05-22T08:00:00Z",
+    rating: 0,
+    displayImages: [
+      "https://mistore.pk/cdn/shop/products/mi67wcarcharger_grande.png?v=1671602475",
+    ],
+    keyFeatures: {
+      display: "",
+      resolution: "",
+      processorModel: "CC07ZM",
+      processorProcess: "",
+      processorCores: "",
+      cpuSpeed: "",
+      refreshRate: "",
+      fingerprintUnlock: false,
+      faceUnlock: false,
+      rearCamera: "",
+      frontCamera: "",
+      battery: "",
+      charging: "67W max (single port up to 55W when used simultaneously)",
+      wetTouchTechnology: "",
+      otherFeatures:
+        "Output Ports: USB-A & Type-C; Input: 12V; Single Port Output: (USB-A) 5V=2A Max, 9V=2A Max; (Type-C) 11V=6.1A Max, 20V=2.5A Max; Dual Port Output: 55W Max",
+      generalFeatures:
+        "Dimensions: 75.13 x 33.29 x 33.29mm; Includes USB Charging Cable & User Manual",
+    },
+    specs: {
+      display: "",
+      resolution: "",
+      processor: "",
+      refreshRate: "",
+      battery: "",
+      os: "",
+    },
+  },
+
   {
     id: "xiaomi-tv-box-s-3rd-gen",
     name: "Xiaomi TV Box S (3rd Gen)",
@@ -514,6 +560,54 @@ export const productsDescription: ProductType[] = [
       refreshRate: "144Hz",
       battery: "8850mAh",
       os: "Xiaomi Surge OS 2",
+    },
+  },
+  {
+    id: "xiaomi-15-ultra-16gb-512gb",
+    name: "Xiaomi 15 Ultra (16GB+512GB)",
+    slug: "xiaomi-15-ultra-16gb-512gb",
+    brand: "Xiaomi",
+    category: "smartphones",
+    images: [
+      "https://mistore.pk/cdn/shop/files/xiaomi_15_ultra_black_300x.webp?v=1742195858",
+      "/images/xiaomi-15-ultra-back.jpg",
+    ],
+    price: 399999,
+    dateAdded: "2025-05-22T08:00:00Z",
+    rating: 0,
+    displayImages: [
+      "https://mistore.pk/cdn/shop/files/xiaomi_15_ultra_black_grande.webp?v=1742195858",
+      "https://mistore.pk/cdn/shop/files/xaiomi_15_ultra_white_color_grande.webp?v=1742195858",
+      "https://mistore.pk/cdn/shop/files/xioami_15_ultra_silver_grande.webp?v=1742195816",
+    ],
+    keyFeatures: {
+      display: '6.73" WQHD+ AMOLED, 120Hz refresh, 3200 nits brightness',
+      resolution: "3200 x 1440, 522 ppi",
+      processorModel: "Snapdragon 8 Gen 3",
+      processorProcess: "3nm",
+      processorCores: "2 x Prime, 6 x Performance",
+      cpuSpeed: "Up to 3.53GHz",
+      refreshRate: "120Hz",
+      fingerprintUnlock: true,
+      faceUnlock: true,
+      rearCamera:
+        "50MP (Main) + 200MP (Ultra Telephoto) + 50MP (Floating Telephoto) + 50MP (Ultra-Wide)",
+      frontCamera: "32MP in-display selfie camera",
+      battery: "5410mAh",
+      charging: "90W wired, 80W wireless HyperCharge",
+      wetTouchTechnology: "",
+      otherFeatures:
+        "Touch sampling rate: Up to 300Hz; IP68 rated; Dual SIM (nano + eSIM); Wi-Fi 7, Bluetooth 6.0, NFC, USB-C",
+      generalFeatures:
+        "Stereo speakers with Dolby Atmos; Hi-Res & Hi-Res Audio Wireless; Xiaomi 3D Dual-Channel IceLoop cooling; In-screen Ultrasonic Fingerprint Sensor; AI Face Unlock; Sensors: Proximity, Ambient Light, Accelerometer, Gyroscope, Compass, IR Blaster, Laser Autofocus, Barometer, Flicker Sensor, X-axis Linear Vibration Motor",
+    },
+    specs: {
+      display: '6.73" WQHD+ AMOLED',
+      resolution: "3200 x 1440",
+      processor: "Snapdragon 8 Gen 3, 3nm",
+      refreshRate: "120Hz",
+      battery: "5410mAh",
+      os: "Xiaomi HyperOS 2",
     },
   },
 ];

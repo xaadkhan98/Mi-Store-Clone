@@ -7,21 +7,23 @@ import {
   Input,
   Radio,
   Select,
-  Space,
   Typography,
   FormProps,
 } from "antd";
 
 import { useSelector } from "react-redux";
-import { StyledFrag, StyledSpace, StyleParagraph } from "./components/styles";
-import styled from "styled-components";
-const { Title, Text, Paragraph } = Typography;
+import {
+  StyledButton,
+  StyledFlex,
+  StyledFrag,
+  StyledPaymentFlex,
+  StyledPaymentSpace,
+  StyledSpace,
+  StyleParagraph,
+  StyleText,
+} from "./components/styles";
 
-const StyledButton = styled(Button)`
-  width: 100%;
-  background-color: green !important;
-  margin-top: 2rem;
-`;
+const { Title, Text, Paragraph } = Typography;
 
 const Payment: React.FC = () => {
   // Select Items array in React State
@@ -70,7 +72,7 @@ const Payment: React.FC = () => {
 
   return (
     <Flex gap="middle">
-      <StyledFrag style={{ borderRight: "2px solid orange" }}>
+      <StyledFrag>
         {contextHolder}
         <Text>Please fill out the below information to place an order.</Text>
         <Form
@@ -83,6 +85,7 @@ const Payment: React.FC = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
+          {/* Contact Input */}
           <Form.Item<FieldType>
             name="contact"
             rules={[{ required: true, message: "Enter your email address!" }]}
@@ -90,11 +93,11 @@ const Payment: React.FC = () => {
             <Title level={5}>Contact</Title>
             <Input placeholder="Email" type="email" />
           </Form.Item>
+          {/* Delivery Input */}
           <Form.Item<FieldType> name="delivery">
             <Title level={5}>Delivery</Title>
             <Select
               defaultValue="Pakistan"
-              style={{ width: "27vw", marginBottom: "1rem" }}
               options={[{ value: "Pakistan", label: "Pakistan" }]}
             />
           </Form.Item>
@@ -102,71 +105,49 @@ const Payment: React.FC = () => {
           <Flex>
             <Form.Item<FieldType>
               name="firstName"
-              style={{ width: "100%" }}
               rules={[{ required: true, message: "Enter your first name!" }]}
             >
               <Input placeholder="First Name" />
             </Form.Item>
-            <Form.Item<FieldType> name="lastName" style={{ width: "100%" }}>
+            <Form.Item<FieldType> name="lastName">
               <Input placeholder="Last Name" />
             </Form.Item>
           </Flex>
           <Form.Item<FieldType>
             name="address"
-            style={{ width: "100%" }}
             rules={[{ required: true, message: "Enter your Postal Adress" }]}
           >
             <Input placeholder="Postal Address" />
           </Form.Item>
-          <Form.Item<FieldType> name="furtherAddress" style={{ width: "100%" }}>
+          <Form.Item<FieldType> name="furtherAddress">
             <Input placeholder="Apartment, Suite, etc. (optional)" />
           </Form.Item>
           <Flex>
             <Form.Item<FieldType>
               name="city"
-              style={{ width: "100%" }}
               rules={[{ required: true, message: "Enter your City" }]}
             >
               <Input placeholder="City" />
             </Form.Item>
-            <Form.Item<FieldType> name="postalCode" style={{ width: "100%" }}>
+            <Form.Item<FieldType> name="postalCode">
               <Input placeholder="Postal Code (Optional)" />
             </Form.Item>
           </Flex>
           <Form.Item<FieldType>
             name="phone"
-            style={{ width: "100%" }}
             rules={[{ required: true, message: "Enter your Phone Number" }]}
           >
             <Input placeholder="Phone Number (03XX-XXX-XXXX)" />
           </Form.Item>
 
-          <Flex
-            style={{
-              width: "100%",
-              columnGap: "2rem",
-              border: "1px solid orange",
-              padding: "0.35rem",
-              borderRadius: "0.5rem",
-              margin: "1rem 0",
-            }}
-            gap="middle"
-            justify="space-between"
-          >
+          <StyledFlex gap="middle" justify="space-between">
             <Text>Standard Delivery Time is 2 to 3 Working Days</Text>
-            <Text style={{ color: "red", fontWeight: "500" }}>Rs 190.00</Text>
-          </Flex>
+            <Text>Rs 190.00</Text>
+          </StyledFlex>
 
           <StyledSpace>
             <Title level={5}>Payment</Title>
-            <Text
-              style={{
-                fontSize: "0.75rem",
-                fontStyle: "italic",
-              }}
-            >
-              All transactions are secure and encrypted.
-            </Text>
+            <StyleText>All transactions are secure and encrypted.</StyleText>
           </StyledSpace>
           <Radio checked>Cash on Delivery (COD)</Radio>
           <Form.Item label={null}>
@@ -176,12 +157,12 @@ const Payment: React.FC = () => {
           </Form.Item>
         </Form>
       </StyledFrag>
-      <Flex justify="start" vertical style={{ marginTop: "2rem" }}>
-        <Space>
+      <StyledPaymentFlex justify="start" vertical>
+        <StyledPaymentSpace>
           <Input placeholder="Discount code or gift card" />
           <Button disabled>Apply</Button>
-        </Space>
-        <Flex justify="space-between" style={{ marginTop: "2rem" }}>
+        </StyledPaymentSpace>
+        <Flex justify="space-between">
           <Paragraph>Subtotal.</Paragraph>
           <StyleParagraph>Rs. {totalAmount}</StyleParagraph>
         </Flex>
@@ -194,7 +175,7 @@ const Payment: React.FC = () => {
           <Title level={5}>Total.</Title>
           <StyleParagraph>Rs. {totalAmount + 190}</StyleParagraph>
         </Flex>
-      </Flex>
+      </StyledPaymentFlex>
     </Flex>
   );
 };

@@ -1,21 +1,34 @@
-import { Divider, Image, Typography } from "antd";
-
+import { Carousel, Image, Row, Typography } from "antd";
 import { ProductType } from "../../utils/products";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+
 import type { DescriptionsProps } from "antd";
 
 import { useDispatch } from "react-redux";
 import cartSlice from "../../redux/cartSlice";
 import {
+  CarouselContainer,
+  ContentContainer,
   GlobalStyles,
   StyledButton,
-  StyledCarousel,
   StyledDescriptions,
+  StyledDivider,
+  StyledImage,
+  StyledShoppinCartIcon,
   StyledSpace,
 } from "./components/styles";
+import { WARRANTY_IMAGE } from "./components/helper";
+
+import React from "react";
+
+const { Title } = Typography;
 
 const Product: React.FC<ProductType> = (product) => {
+  const dispatch = useDispatch();
+
+  // Fetching keyfeatures from product
   const { keyFeatures } = product || {};
+
+  // Fetching all properties from key features
   const {
     display,
     resolution,
@@ -33,6 +46,8 @@ const Product: React.FC<ProductType> = (product) => {
     otherFeatures,
     generalFeatures,
   }: any = keyFeatures || {};
+
+  // Items Array from Ant Design
   const items: DescriptionsProps["items"] = [
     {
       key: "1",
@@ -116,81 +131,53 @@ const Product: React.FC<ProductType> = (product) => {
     },
   ];
 
-  const dispatch = useDispatch();
-  const handleCartBtn = (product: any) => {
+  // Function to execute when add to cart button is pressed
+  const handleCartButton = (product: any) => {
     dispatch(cartSlice.actions.addToCart(product));
   };
 
   //Format Currency
-
   const formattedAmount = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "PKR",
   }).format(product.price);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
+    <React.Fragment>
       <GlobalStyles />
-      <div
-        style={{
-          width: "50%",
+      <Row>
+        {/* Image carousel */}
+        <CarouselContainer>
+          <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={1000}>
+            {/* Map out all the links to Image tag */}
+            {product.displayImages?.map((displayImg, index) => (
+              <StyledImage key={index} src={displayImg} />
+            ))}
+          </Carousel>
+        </CarouselContainer>
 
-          backgroundColor: "white",
-          marginBottom: "5rem",
-        }}
-      >
-        <StyledCarousel autoplay={{ dotDuration: true }} autoplaySpeed={2000}>
-          {product.displayImages?.map((displayImg) => {
-            return (
-              <div>
-                <img
-                  src={displayImg}
-                  style={{
-                    objectFit: "cover",
-                    width: "100%",
-                  }}
-                />
-              </div>
-            );
-          })}
-        </StyledCarousel>
-      </div>
-
-      <StyledSpace>
-        <Typography.Title level={2}>{product.name}</Typography.Title>
-        <Typography.Title level={5}>{formattedAmount}</Typography.Title>
-        <Divider
-          style={{ borderColor: "orange", paddingInline: "17vw", margin: 0 }}
-        />
-
-        {keyFeatures && (
-          <StyledDescriptions title="Key Features" items={items} />
-        )}
-        <Divider
-          style={{ borderColor: "orange", paddingInline: "17vw", margin: 0 }}
-        />
-        <Image
-          style={{ paddingTop: "1rem" }}
-          preview={false}
-          src="https://mistore.pk/cdn/shop/files/1_YEAR_WARRANTY-05_1_70x.png?v=1714214955"
-        />
-        <StyledButton
-          onClick={() => {
-            handleCartBtn(product);
-          }}
-        >
-          <ShoppingCartOutlined
-            style={{ fontSize: "1.25rem", padding: "0.25rem" }}
-          />
-          Add to Cart
-        </StyledButton>
-      </StyledSpace>
-    </div>
+        {/* Keyfeatures Content */}
+        <ContentContainer>
+          <StyledSpace>
+            <Title level={2}>{product.name}</Title>
+            {/* In order to keep the amount look like currency */}
+            <Title level={5}>{formattedAmount}</Title>
+            <StyledDivider />
+            {/* Render description component if key features are there */}
+            {keyFeatures && (
+              <StyledDescriptions title="Key Features" items={items} />
+            )}
+            <StyledDivider />
+            <Image preview={false} src={WARRANTY_IMAGE} />
+            {/* Add to Cart Button */}
+            <StyledButton onClick={() => handleCartButton(product)}>
+              <StyledShoppinCartIcon />
+              Add to Cart
+            </StyledButton>
+          </StyledSpace>
+        </ContentContainer>
+      </Row>
+    </React.Fragment>
   );
 };
 

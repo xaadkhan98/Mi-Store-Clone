@@ -7,18 +7,17 @@ import { Typography } from "antd";
 import { Link } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 
+const { Title, Text } = Typography;
+
+// remove gs
 const GlobalStyle = createGlobalStyle`
-.slick-prev::before, .slick-next::before {
-    color: orange !important;
+&& .slick-prev::before, .slick-next::before {
+    color: orange;
 }
 h5.ant-typography{
   font-size: 1rem;
 }
-span.ant-typography{
-  font-weight: 500;
-  color: orange;
-  font-size: 0.8rem;
-}
+
 `;
 
 const SlickSlider: React.FC = () => {
@@ -35,25 +34,25 @@ const SlickSlider: React.FC = () => {
   return (
     <div style={{ margin: "1rem" }}>
       <GlobalStyle />
-      <Typography.Title level={3} style={{ textAlign: "center" }}>
+      <Title level={3} style={{ textAlign: "center" }}>
         Featured Products
-      </Typography.Title>
+      </Title>
       <Slider {...settings}>
         {/* Map out all the products from Product Description file */}
-        {productsDescription.map((product) => {
+        {productsDescription.map(({ category, id, images, name, price }) => {
           return (
             // Target only "smartphones" category for the slider
-            product.category === "smartphones" && (
+            category === "smartphones" && (
               <Link
-                to={`products/${product.id}`}
+                to={`products/${id}`}
                 onClick={() => {
                   // When navigated to product page it should scroll to top
                   window.scrollTo(0, 0);
                 }}
               >
-                <img src={product.images[0]} alt="" />
-                <Typography.Title level={5}>{product.name}</Typography.Title>
-                <Typography.Text>{product.price}</Typography.Text>
+                <img src={images[0]} alt="" />
+                <Title level={5}>{name}</Title>
+                <Text>{price}</Text>
               </Link>
             )
           );

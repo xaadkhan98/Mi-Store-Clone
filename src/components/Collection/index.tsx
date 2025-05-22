@@ -1,45 +1,28 @@
-// import { useNavigate, useParams } from "react-router-dom";
-import Card from "antd/es/card/Card";
 import { ProductType } from "../../utils/products";
-import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
-import { Button } from "antd";
+import { useNavigate } from "react-router-dom";
 import { SelectOutlined } from "@ant-design/icons";
+import { StyledButton, StyledCard } from "./components/styles";
+import React from "react";
+import { Typography } from "antd";
 
-const StyledCard = styled(Card)``;
-// const BASE_URL = `http://localhost:3000/products/`;
+const { Title } = Typography;
 
-const StyledButton = styled(Button)`
-  color: orange !important;
-  background: white;
-  border: none !important;
-  border: 1px solid orange !important;
-  &:hover {
-    color: white !important;
-    background-color: orange !important;
-  }
-`;
-
-const Collection: React.FC<ProductType> = ({ images, slug, id }) => {
+const Collection: React.FC<ProductType> = ({ images, slug, id, name }) => {
   const navigate = useNavigate();
+  function handleClickNavigation() {
+    navigate(`/products/${id}`);
+  }
 
   return (
-    <>
-      <StyledCard
-        style={{ width: 300 }}
-        cover={<img alt="example" src={images[0]} />}
-      >
-        <StyledButton
-          type="link"
-          onClick={() => {
-            navigate(`/products/${id}`);
-          }}
-        >
+    <React.Fragment>
+      <StyledCard cover={<img alt={slug} src={images[0]} />}>
+        <Title level={5}>{name}</Title>
+        <StyledButton type="link" onClick={handleClickNavigation}>
           <SelectOutlined />
           View
         </StyledButton>
       </StyledCard>
-    </>
+    </React.Fragment>
   );
 };
 
