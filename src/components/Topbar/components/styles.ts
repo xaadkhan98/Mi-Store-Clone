@@ -1,6 +1,7 @@
 import { Badge, Flex, Space, Typography } from "antd";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { ShoppingOutlined } from "@ant-design/icons";
 
 const { Text } = Typography;
 
@@ -51,17 +52,31 @@ export const StyledLink = styled(Link)`
 
 export const StyledFlex = styled(Flex)`
   width: 6vw;
+  height: 25px;
+  &&&.hwOxeg {
+    height: 20px;
+  }
 `;
 
 export const StyledBadge = styled(Badge)`
   font-size: 0.95rem;
-  &&&:where(.css-dev-only-do-not-override-18afz5u).ant-badge .ant-badge-count {
+  .ant-badge-count {
     min-width: 14px;
     height: 14px;
     font-size: 0.7rem;
     line-height: 0.8rem;
   }
+  &&&:where(.css-dev-only-do-not-override-18afz5u).ant-flex-align-center {
+    display: none;
+  }
   .anticon {
     color: #b0b0b0;
+    height: 20px;
+  }
+`;
+export const StyledShoppingOutline = styled(ShoppingOutlined)`
+  &&&.anticon,
+  &&&.anticon-shopping {
+    display: none;
   }
 `;

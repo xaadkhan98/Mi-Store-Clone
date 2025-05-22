@@ -3,7 +3,12 @@ import { Button, Form, Input, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSaving } from "../../redux/loginSlice";
-import { GlobalStyles, StyledSpace, StyledTitle } from "./components/styles";
+import {
+  GlobalStyles,
+  StyledForm,
+  StyledSpace,
+  StyledTitle,
+} from "./components/styles";
 
 // Types for Username and Password
 type FieldType = {
@@ -46,31 +51,29 @@ const Login = () => {
       <Form
         method="post"
         name="basic"
-        style={{ maxWidth: 600 }}
+        style={{ maxWidth: 900 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item<FieldType>
+        <StyledForm.Item<FieldType>
           name="email"
           rules={[{ required: true, message: "Please input your email!" }]}
         >
-          <Input placeholder="Email" style={{ width: "20rem" }} />
-        </Form.Item>
+          <Input placeholder="Email" />
+        </StyledForm.Item>
 
-        <Form.Item<FieldType>
+        <StyledForm.Item<FieldType>
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}
         >
-          <Input.Password placeholder="Password" style={{ width: "20rem" }} />
-        </Form.Item>
+          <Input.Password placeholder="Password" />
+        </StyledForm.Item>
 
-        <Form.Item label={null}>
-          <Button style={{ width: "20rem" }} htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
+        <StyledForm.Item label={null}>
+          <Button htmlType="submit">Submit</Button>
+        </StyledForm.Item>
       </Form>
     </StyledSpace>
   );

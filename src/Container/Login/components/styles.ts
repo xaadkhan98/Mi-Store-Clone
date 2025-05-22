@@ -1,4 +1,4 @@
-import { Space, Typography } from "antd";
+import { Form, Space, Typography } from "antd";
 
 import styled, { createGlobalStyle } from "styled-components";
 
@@ -33,4 +33,23 @@ export const StyledSpace = styled(Space)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+export const StyledForm = styled(Form)`
+  &&&:where(.css-dev-only-do-not-override-18afz5u).ant-input-outlined {
+    background: rgb(88, 32, 32);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+  }
+  &&&.ant-form-item-control-input-content {
+    background: rgb(88, 32, 32);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+  }
+  &&&:where(.css-dev-only-do-not-override-18afz5u).ant-input {
+    width: 100%;
+    min-width: 700px;
+  }
 `;

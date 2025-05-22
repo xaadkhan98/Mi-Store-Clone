@@ -1,5 +1,5 @@
 import { Row, Col } from "antd";
-import UserTable from "../Home/components";
+import UserTable from "./components";
 import { StyledTitle } from "../Products/components/styles";
 import { StyledFlex } from "./components/styles";
 

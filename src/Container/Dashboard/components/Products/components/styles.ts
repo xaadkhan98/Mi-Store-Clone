@@ -20,5 +20,5 @@ export const StyledTitle = styled(Title)`
 `;
 
 export const StyledFlex = styled(Flex)`
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
 `;

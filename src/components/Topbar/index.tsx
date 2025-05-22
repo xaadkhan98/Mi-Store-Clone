@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import { selectTotalQuantity } from "../../redux/selectors";
 import { useSelector } from "react-redux";
-import { Badge, Space, Flex } from "antd";
+
 import {
   StyledBadge,
   StyledFlex,

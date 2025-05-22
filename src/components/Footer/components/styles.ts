@@ -101,6 +101,7 @@ export const StyledImage = styled(Image)`
     margin: 0.25rem;
     background-color: white;
     border-radius: 1rem;
+    margin-top: 2rem;
   }
 `;
 

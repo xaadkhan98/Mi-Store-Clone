@@ -3,7 +3,8 @@ import { Card } from "antd";
 import styled from "styled-components";
 
 import { FundOutlined, ShoppingOutlined, TagOutlined } from "@ant-design/icons";
-import UserTable from "./components";
+import { Gauge } from "@ant-design/plots";
+import React from "react";
 
 const { Title, Text } = Typography;
 
@@ -28,6 +29,13 @@ const StyledIcon = styled(Space)`
 const StyledText = styled(Text)`
   font-weight: 400;
   color: orange;
+`;
+const StyledGuageText = styled(Text)`
+  font-weight: 400;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
 `;
 
 // Mock data for Dashboard Cards
@@ -54,19 +62,29 @@ const DashCardsArray = [
   },
 ];
 const Home = () => {
-  const data = [
-    { year: "2018", sales: 38 },
-    { year: "2019", sales: 52 },
-    { year: "2020", sales: 61 },
-  ];
+  const config = {
+    data: {
+      target: 65.9,
+      total: 100,
+      name: "score",
+      thresholds: [33.3, 77.6, 100],
+    },
+    legend: false,
+    scale: {
+      color: {
+        range: ["#F4664A", "#FAAD14", "green"],
+      },
+    },
+  };
+
   return (
-    <>
+    <React.Fragment>
       {/* Title of the page */}
       <StyledTitle level={4}>Welcome!</StyledTitle>
 
       {/* Two Separated sections for cards and charts */}
       <Row>
-        <Col span={12}>
+        <Col span={10}>
           <Flex wrap justify="space-between">
             {DashCardsArray.map((card) => {
               return (
@@ -83,21 +101,16 @@ const Home = () => {
             })}
           </Flex>
         </Col>
-        <Col span={12}>
-          {/* <Chart
-            height={400}
-            autoFit
-            data={data}
-            interactions={["active-region"]}
-          >
-            <Axis name="year" />
-            <Axis name="sales" />
-            <Tooltip shared />
-            <Interval position="year*sales" />
-          </Chart> */}
+        <Col span={7}>
+          <Flex justify="center" align="center">
+            <Card>
+              <Gauge width={225} height={225} {...config} />
+              <StyledGuageText>Returning Client's Percentage %</StyledGuageText>
+            </Card>
+          </Flex>
         </Col>
       </Row>
-    </>
+    </React.Fragment>
   );
 };
 

@@ -9,7 +9,7 @@ const Products = () => {
   return (
     <>
       {productsDescription
-        // Filter products based on productId
+        // Filter products data based on productId
         .filter((filteredProduct) => {
           return filteredProduct.id === productId;
         })

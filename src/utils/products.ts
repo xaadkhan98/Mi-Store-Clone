@@ -1,4 +1,4 @@
-// 1) Category keys as a union for strong typing
+// Category keys as a union for strong typing
 export type CategoryId =
   | "new-arrivals"
   | "smartphones"
@@ -9,13 +9,13 @@ export type CategoryId =
   | "lifestyle"
   | "deals";
 
-// 2) Category definition
+// Categories
 export interface Category {
   id: CategoryId;
   name: string;
 }
 
-// 4) Loose specs map; refine per-category later if needed
+// Loose specs map; refine per-category later if needed
 export type Specs = Record<string, string | string[]>;
 
 // 5) Core product shape

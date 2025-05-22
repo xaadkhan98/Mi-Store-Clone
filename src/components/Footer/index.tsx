@@ -15,6 +15,11 @@ import {
   StyledTitle,
 } from "./components/styles";
 import React from "react";
+import {
+  AFTER_SALE_SERVICES,
+  GET_TO_KNOW_LINKS,
+  PAYMENT_IMAGES,
+} from "./components/helper";
 
 const { Title, Text } = Typography;
 
@@ -90,39 +95,42 @@ const FooterComponent = () => {
         </StyledHelpCol>
       </Row>
       <StyledDetailsRow>
+        {/* Footer Get to know us Section */}
         <Col span={6}>
           <StyledTitle>GET TO KNOW US</StyledTitle>
           <Flex vertical>
-            <StyledLink to="/">Our Team</StyledLink>
-            <StyledLink to="/">About Us</StyledLink>
-            <StyledLink to="/">Terms & Conditions</StyledLink>
-            <StyledLink to="/">Packing Process</StyledLink>
-            <StyledLink to="/">Customer Reviews</StyledLink>
+            {GET_TO_KNOW_LINKS.map((completeLink) => {
+              return (
+                <StyledLink to={completeLink.link}>
+                  {completeLink.linkedText}
+                </StyledLink>
+              );
+            })}
           </Flex>
         </Col>
+        {/* After sale services Section in Footer */}
         <Col span={6}>
           <StyledTitle>AFTER SALE SERVICES</StyledTitle>
           <Flex vertical>
-            <StyledLink to="/">Privacy Policy</StyledLink>
-            <StyledLink to="/">Refund & Return Policy</StyledLink>
-            <StyledLink to="/">Warranty & Repair Policy</StyledLink>
-            <StyledLink to="/">Shipping & Cancellation Policy</StyledLink>
-            <StyledLink to="/">Estimated Delivery Time</StyledLink>
-            <StyledLink to="/">Secure Payment</StyledLink>
-            <StyledLink to="/">User Guide</StyledLink>
+            {AFTER_SALE_SERVICES.map((completeLink) => {
+              return (
+                <StyledLink to={completeLink.link}>
+                  {completeLink.linkedText}
+                </StyledLink>
+              );
+            })}
           </Flex>
         </Col>
         <Col span={6}>
           <StyledTitle>LET US HELP YOU</StyledTitle>
           <Flex vertical>
-            <StyledLink to="/">How to Place Order</StyledLink>
-            <StyledLink to="/">E-Gift Card</StyledLink>
-            <StyledLink to="/">Claim Process</StyledLink>
-            <StyledLink to="/">Product Authentication</StyledLink>
-            <StyledLink to="/">Track Your Order</StyledLink>
-            <StyledLink to="/">FAQs</StyledLink>
-            <StyledLink to="/">Blogs</StyledLink>
-            <StyledLink to="/">Xiaomi Community</StyledLink>
+            {AFTER_SALE_SERVICES.map((completeLink) => {
+              return (
+                <StyledLink to={completeLink.link}>
+                  {completeLink.linkedText}
+                </StyledLink>
+              );
+            })}
           </Flex>
         </Col>
         <Col span={6}>
@@ -132,23 +140,12 @@ const FooterComponent = () => {
             <StyledLink to="/">Helpline Number : 03-111-111-050</StyledLink>
             <StyledLink to="/">info@mistore.pk</StyledLink>
             <StyledLink to="/">Service Timings 10am-6pm</StyledLink>
+
+            {/* Rather than giving each Image separate source it's better to map through it */}
             <Space>
-              <StyledImage
-                preview={false}
-                src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-03.png?v=1691410248"
-              />
-              <StyledImage
-                preview={false}
-                src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-02.png?v=1691410247"
-              />
-              <StyledImage
-                preview={false}
-                src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/bank-transfer-icon.svg?v=1719473184"
-              />
-              <StyledImage
-                preview={false}
-                src="https://cdn.shopify.com/s/files/1/0231/3627/2464/files/web_icons-04.png?v=1691410248"
-              />
+              {PAYMENT_IMAGES.map((imageSource) => (
+                <StyledImage preview={false} src={imageSource} />
+              ))}
             </Space>
           </Flex>
         </Col>
