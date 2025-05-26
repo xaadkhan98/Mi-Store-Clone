@@ -9,6 +9,8 @@ const { Title } = Typography;
 
 const Collection: React.FC<ProductType> = ({ images, slug, id, name }) => {
   const navigate = useNavigate();
+
+  // Function to navigate to specific products depending on id recived
   function handleClickNavigation() {
     navigate(`/products/${id}`);
   }

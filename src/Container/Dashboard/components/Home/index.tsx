@@ -5,38 +5,15 @@ import styled from "styled-components";
 import { FundOutlined, ShoppingOutlined, TagOutlined } from "@ant-design/icons";
 import { Gauge } from "@ant-design/plots";
 import React from "react";
-
-const { Title, Text } = Typography;
-
-const StyledTitle = styled(Title)`
-  color: #797272 !important;
-  padding-bottom: 2rem;
-`;
-
-const StyledCard = styled(Card)`
-  width: 45% !important;
-  margin-bottom: 1rem;
-`;
-
-const StyledIcon = styled(Space)`
-  font-size: 1.5rem;
-  background: orange;
-  padding: 0 0.25rem;
-  border-radius: 6px;
-  color: white;
-`;
-
-const StyledText = styled(Text)`
-  font-weight: 400;
-  color: orange;
-`;
-const StyledGuageText = styled(Text)`
-  font-weight: 400;
-  color: #000000;
-  display: flex;
-  justify-content: center;
-  font-weight: 500;
-`;
+import {
+  StyledCard,
+  StyledGuageText,
+  StyledIcon,
+  StyledRow,
+  StyledText,
+  StyledTitle,
+  Title,
+} from "./components/styles";
 
 // Mock data for Dashboard Cards
 const DashCardsArray = [
@@ -61,6 +38,8 @@ const DashCardsArray = [
     count: "34,230.3k",
   },
 ];
+
+// Pie Chart Data from Documentation
 const Home = () => {
   const config = {
     data: {
@@ -83,8 +62,8 @@ const Home = () => {
       <StyledTitle level={4}>Welcome!</StyledTitle>
 
       {/* Two Separated sections for cards and charts */}
-      <Row>
-        <Col span={10}>
+      <StyledRow>
+        <Col xs={24} xl={10}>
           <Flex wrap justify="space-between">
             {DashCardsArray.map((card) => {
               return (
@@ -109,7 +88,7 @@ const Home = () => {
             </Card>
           </Flex>
         </Col>
-      </Row>
+      </StyledRow>
     </React.Fragment>
   );
 };

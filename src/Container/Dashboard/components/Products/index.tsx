@@ -51,6 +51,7 @@ const ProductsTab = () => {
     {
       title: "Image",
       dataIndex: "imageUrl",
+      width: 150,
       render: (imageUrl: string) => (
         <Image width={75} src={imageUrl} alt={imageUrl} />
       ),
@@ -90,7 +91,7 @@ const ProductsTab = () => {
         <ModalForm />
       </StyledFlex>
       {/* Table showing values directly from Fake Ecommerce Stor API */}
-      <Table dataSource={data} columns={columns} />
+      <Table scroll={{ x: "200" }} dataSource={data} columns={columns} />
     </React.Fragment>
   );
 };

@@ -27,7 +27,7 @@ const FooterComponent = () => {
   return (
     <React.Fragment>
       <Row>
-        <StyledCol style={{ backgroundColor: " #ff6d00" }} span={8}>
+        <StyledCol style={{ backgroundColor: " #ff6d00" }} xs={24} xl={8}>
           <Image
             preview={false}
             src="/Hero-Section/policies (3).avif"
@@ -35,7 +35,7 @@ const FooterComponent = () => {
             alt=""
           />
         </StyledCol>
-        <StyledCol style={{ backgroundColor: " #ff9505" }} span={8}>
+        <StyledCol style={{ backgroundColor: " #ff9505" }} xs={24} xl={8}>
           <Image
             preview={false}
             src="/Hero-Section/policies (2).avif"
@@ -43,7 +43,7 @@ const FooterComponent = () => {
             alt=""
           />
         </StyledCol>
-        <StyledCol style={{ backgroundColor: " #eeb902" }} span={8}>
+        <StyledCol style={{ backgroundColor: " #eeb902" }} xs={24} xl={8}>
           <Image
             preview={false}
             src="/Hero-Section/policies (1).avif"
@@ -54,10 +54,12 @@ const FooterComponent = () => {
       </Row>
 
       <Row>
-        <StyledCol span={12}>
+        <StyledCol xs={24} xl={12}>
           <StyledFlex vertical>
             <Title level={5}>Let's stay in touch</Title>
-            <Text>Get updates on sales specials and more</Text>
+            <Text>
+              Get updates on sales <br /> specials and more
+            </Text>
           </StyledFlex>
           <Space.Compact>
             <Input placeholder="Enter Your Email Address" />
@@ -65,40 +67,40 @@ const FooterComponent = () => {
           </Space.Compact>
         </StyledCol>
 
-        <StyledCol span={12}>
+        <StyledCol xs={24} xl={12}>
           <StyledFlex vertical>
             <Title level={5}>Follow Mi</Title>
             <Text>We want to hear from you!</Text>
           </StyledFlex>
-          <Space>
+          <Space.Compact>
             <Image preview={false} src="/Socials/facebook.png" alt="" />
             <Image preview={false} src="/Socials/youtube.png" alt="" />
             <Image preview={false} src="/Socials/instagram.png" alt="" />
             <Image preview={false} src="/Socials/twitter.png" alt="" />
             <Image preview={false} src="/Socials/tiktok.png" alt="" />
-          </Space>
+          </Space.Compact>
         </StyledCol>
       </Row>
 
       <Row>
-        <StyledHelpCol span={8}>
+        <StyledHelpCol xs={24} xl={8}>
           <InfoCircleOutlined />
           <span>About Smartlink</span>
         </StyledHelpCol>
-        <StyledHelpCol span={8}>
+        <StyledHelpCol xs={24} xl={8}>
           <QuestionCircleOutlined />
           <span>FAQ's</span>
         </StyledHelpCol>
-        <StyledHelpCol span={8}>
+        <StyledHelpCol xs={24} xl={8}>
           <MessageOutlined />
           <span>Need Help?</span>
         </StyledHelpCol>
       </Row>
       <StyledDetailsRow>
         {/* Footer Get to know us Section */}
-        <Col span={6}>
-          <StyledTitle>GET TO KNOW US</StyledTitle>
-          <Flex vertical>
+        <Col xs={24} xl={6}>
+          <Flex align="center" vertical>
+            <StyledTitle>GET TO KNOW US</StyledTitle>
             {GET_TO_KNOW_LINKS.map((completeLink) => {
               return (
                 <StyledLink to={completeLink.link}>
@@ -109,9 +111,9 @@ const FooterComponent = () => {
           </Flex>
         </Col>
         {/* After sale services Section in Footer */}
-        <Col span={6}>
-          <StyledTitle>AFTER SALE SERVICES</StyledTitle>
-          <Flex vertical>
+        <Col xs={24} xl={6}>
+          <Flex align="center" vertical>
+            <StyledTitle>AFTER SALE SERVICES</StyledTitle>
             {AFTER_SALE_SERVICES.map((completeLink) => {
               return (
                 <StyledLink to={completeLink.link}>
@@ -121,9 +123,9 @@ const FooterComponent = () => {
             })}
           </Flex>
         </Col>
-        <Col span={6}>
-          <StyledTitle>LET US HELP YOU</StyledTitle>
-          <Flex vertical>
+        <Col xs={24} xl={6}>
+          <Flex align="center" vertical>
+            <StyledTitle>LET US HELP YOU</StyledTitle>
             {AFTER_SALE_SERVICES.map((completeLink) => {
               return (
                 <StyledLink to={completeLink.link}>
@@ -133,9 +135,9 @@ const FooterComponent = () => {
             })}
           </Flex>
         </Col>
-        <Col span={6}>
-          <StyledTitle>CUSTOMER CARE</StyledTitle>
-          <Flex vertical>
+        <Col xs={24} xl={6}>
+          <Flex vertical align="center">
+            <StyledTitle>CUSTOMER CARE</StyledTitle>
             <StyledLink to="/">Support</StyledLink>
             <StyledLink to="/">Helpline Number : 03-111-111-050</StyledLink>
             <StyledLink to="/">info@mistore.pk</StyledLink>

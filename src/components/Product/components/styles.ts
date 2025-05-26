@@ -6,6 +6,7 @@ import {
   Image,
   Divider,
   Col,
+  Row,
 } from "antd";
 import styled, { createGlobalStyle } from "styled-components";
 import { ShoppingCartOutlined } from "@ant-design/icons";
@@ -138,4 +139,16 @@ export const ContentContainer = styled(Col)`
   padding: 20px;
   box-sizing: border-box;
   overflow-y: auto;
+  @media screen and (max-width: 501px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+`;
+
+export const StyledRow = styled(Row)`
+  @media screen and (max-width: 501px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;

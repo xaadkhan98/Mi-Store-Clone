@@ -45,6 +45,15 @@ export const StyledRow = styled(Row)`
     justify-content: center;
     align-items: center;
     place-self: center;
+    @media screen and (max-width: 501px) {
+      h4 {
+        font-size: 0.5rem;
+        text-align: center;
+        align-items: start;
+        margin: 0;
+        padding: 0;
+      }
+    }
   }
 `;
 

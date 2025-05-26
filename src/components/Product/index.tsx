@@ -13,6 +13,7 @@ import {
   StyledDescriptions,
   StyledDivider,
   StyledImage,
+  StyledRow,
   StyledShoppinCartIcon,
   StyledSpace,
 } from "./components/styles";
@@ -145,7 +146,7 @@ const Product: React.FC<ProductType> = (product) => {
   return (
     <React.Fragment>
       <GlobalStyles />
-      <Row>
+      <StyledRow>
         {/* Image carousel */}
         <CarouselContainer>
           <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={1000}>
@@ -176,7 +177,7 @@ const Product: React.FC<ProductType> = (product) => {
             </StyledButton>
           </StyledSpace>
         </ContentContainer>
-      </Row>
+      </StyledRow>
     </React.Fragment>
   );
 };

@@ -5,19 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { productsDescription } from "../../../utils/products";
 import { Typography } from "antd";
 import { Link } from "react-router-dom";
-import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 const { Title, Text } = Typography;
 
-// remove gs
-const GlobalStyle = createGlobalStyle`
-&& .slick-prev::before, .slick-next::before {
-    color: orange;
-}
-h5.ant-typography{
-  font-size: 1rem;
-}
-
+const StyledSlick = styled.div`
+  margin: 1rem;
+  @media screen and (max-width: 501px) {
+    display: none;
+  }
 `;
 
 const SlickSlider: React.FC = () => {
@@ -32,8 +28,7 @@ const SlickSlider: React.FC = () => {
   };
 
   return (
-    <div style={{ margin: "1rem" }}>
-      <GlobalStyle />
+    <StyledSlick>
       <Title level={3} style={{ textAlign: "center" }}>
         Featured Products
       </Title>
@@ -58,7 +53,7 @@ const SlickSlider: React.FC = () => {
           );
         })}
       </Slider>
-    </div>
+    </StyledSlick>
   );
 };
 

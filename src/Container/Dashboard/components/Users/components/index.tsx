@@ -67,7 +67,14 @@ const UserTable = () => {
         }))
       : [];
 
-  return <Table pagination={false} dataSource={data} columns={columns} />;
+  return (
+    <Table
+      scroll={{ x: "200" }}
+      pagination={false}
+      dataSource={data}
+      columns={columns}
+    />
+  );
 };
 
 export default UserTable;

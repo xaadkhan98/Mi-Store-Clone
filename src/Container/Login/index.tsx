@@ -26,8 +26,6 @@ const Login = () => {
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     // Fetching input values
-    const { email, password } = values;
-    console.log(values);
 
     if (values.email != "admin@gmail.com" && values.password != "admin123")
       return messageApi.error("Please try again with Correct credentials!");
@@ -57,6 +55,7 @@ const Login = () => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
+        {/* Email Component */}
         <StyledForm.Item<FieldType>
           name="email"
           rules={[{ required: true, message: "Please input your email!" }]}
@@ -64,6 +63,7 @@ const Login = () => {
           <Input placeholder="Email" />
         </StyledForm.Item>
 
+        {/* Password Component */}
         <StyledForm.Item<FieldType>
           name="password"
           rules={[{ required: true, message: "Please input your password!" }]}

@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { error } from "console";
+import { createSlice } from "@reduxjs/toolkit";
 
 // Define complete interface for data
 interface LoginState {
@@ -8,11 +7,6 @@ interface LoginState {
   saving: boolean;
   error: boolean;
 }
-
-interface User {
-  user: LoginState;
-}
-
 // Initial state after rendering
 const initialState = {
   user: {

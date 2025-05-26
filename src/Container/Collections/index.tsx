@@ -1,11 +1,10 @@
 import React from "react";
-import { Card, Row, Space, Typography } from "antd";
+import { Space, Typography } from "antd";
 import { productsDescription } from "../../utils/products";
 import Product from "../../components/Collection";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 
-const { Meta } = Card;
 const { Title } = Typography;
 
 const StyledProducts = styled(Space)`
@@ -19,7 +18,7 @@ const StyledProducts = styled(Space)`
 const Collections: React.FC = () => {
   // Dynamically fetching category
   const { categoryy } = useParams();
-  console.log(categoryy);
+
   return (
     <>
       <Title level={4}>

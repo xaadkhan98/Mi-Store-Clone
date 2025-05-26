@@ -1,7 +1,6 @@
 import { Image, Flex, Typography } from "antd";
 import styled from "styled-components";
 import { ERROR_IMAGE } from "./components/helper";
-
 const { Title, Link } = Typography;
 
 const StyledImage = styled(Image)`

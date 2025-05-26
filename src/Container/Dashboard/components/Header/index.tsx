@@ -1,12 +1,5 @@
-import React from "react";
-import {
-  AntDesignOutlined,
-  DownOutlined,
-  LogoutOutlined,
-  SettingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Avatar, Divider, Dropdown, Space, Tooltip, Typography } from "antd";
+import { LogoutOutlined } from "@ant-design/icons";
+import { Avatar, Divider, Dropdown, Space, Typography } from "antd";
 import type { MenuProps } from "antd";
 import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate } from "react-router-dom";

@@ -10,15 +10,17 @@ import dashboardChildRoutes from "../../Container/Dashboard/routes";
 import Payment from "../../Container/Payment/Payment";
 import Checkout from "../../Container/Checkout";
 import ErrorPage from "../../Container/ErrorPage";
-
-//Check for Authentication
-const isAuthenticated = localStorage.getItem("isAuthenticated");
+import PublicRoute from "./PublicRoutes";
 
 const childrenRoutes = [
   { path: "/", element: <Homepage /> },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <PublicRoute>
+        <Login />
+      </PublicRoute>
+    ),
   },
   { path: "/collections/:categoryy", element: <Collections /> },
   { path: "/products/:productId", element: <Products /> },
@@ -28,11 +30,13 @@ const childrenRoutes = [
 ];
 
 const AppRoutes = createBrowserRouter([
+  // localhost:3000 Routes
   {
     path: "/",
     element: <LayoutWrapper />,
     children: childrenRoutes,
   },
+  // localhost:3000/dashboard Routes
   {
     path: "/dashboard",
     element: (

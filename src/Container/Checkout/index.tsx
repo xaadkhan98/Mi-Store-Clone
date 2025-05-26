@@ -9,6 +9,7 @@ import {
   StyledEmptyCart,
   StyledTitle,
 } from "./components/styles";
+import React from "react";
 
 let data: [{}] = [{}];
 
@@ -72,7 +73,7 @@ const Checkout = () => {
   }));
 
   return (
-    <>
+    <React.Fragment>
       <GlobalStyles />
       {!data.length ? (
         <StyledEmptyCart>
@@ -94,7 +95,7 @@ const Checkout = () => {
           <StyledButton to="payment">Proceed to Payment</StyledButton>
         </>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

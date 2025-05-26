@@ -2,13 +2,18 @@ import { Button, Card } from "antd";
 import styled from "styled-components";
 
 export const StyledButton = styled(Button)`
-  color: orange !important;
-  background: white;
-  border: none !important;
   border: 1px solid orange !important;
-  &:hover {
-    color: white !important;
-    background-color: orange !important;
+
+  &&&.ant-btn-color-link.ant-btn-variant-link {
+    color: orange;
+    box-shadow: none;
+    border: none;
+    border: 1px solid orange;
+    background-color: white;
+    &&:hover {
+      background-color: orange;
+      color: white;
+    }
   }
 `;
 

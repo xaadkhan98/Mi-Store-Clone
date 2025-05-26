@@ -8,6 +8,7 @@ import type { MenuProps } from "antd";
 import { Layout, Menu, theme } from "antd";
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardHeader from "../Header";
+import styled from "styled-components";
 
 const { Header, Content, Footer, Sider } = Layout;
 

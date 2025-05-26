@@ -1,5 +1,5 @@
 import { StarFilled } from "@ant-design/icons";
-import { Button, Image } from "antd";
+import { Button, Flex, Image, Space } from "antd";
 import { Col, Row, Typography } from "antd";
 import Title from "antd/es/typography/Title";
 import {
@@ -8,6 +8,7 @@ import {
   StyledMedals,
   StyledRow,
   StyledSpace,
+  StyledStarFilled,
 } from "./components/styles";
 import React from "react";
 const { Text } = Typography;
@@ -43,7 +44,7 @@ const HeroSection = () => {
         </Col>
       </Row>
       <StyledSpace align="start">
-        <div>
+        <Space>
           <Image
             src="./Hero-Section/Hero-Section (7).webp"
             style={{
@@ -59,8 +60,8 @@ const HeroSection = () => {
             Compare Redmi A3 vs Redmi A5 in detail. Explore specs, features, and
             performance to help you choose the best smartphone for your needs.
           </Text>
-        </div>
-        <div>
+        </Space>
+        <Space>
           <Image
             style={{
               width: "100%",
@@ -79,57 +80,30 @@ const HeroSection = () => {
             src="./Hero-Section/Hero-Section (8).webp"
             alt=""
           />
-        </div>
+        </Space>
       </StyledSpace>
 
       <StyledButtons>
-        <Button
-          style={{
-            border: "1px solid black",
-            borderRadius: 0,
-            padding: "1.25rem 1.5rem",
-            fontWeight: "700",
-          }}
-        >
-          View All
-        </Button>
-        <Button
-          style={{
-            border: "1px solid black",
-            borderRadius: 0,
-            padding: "1.25rem 1.5rem",
-            fontWeight: "700",
-          }}
-        >
-          View All
-        </Button>
+        <Button>View All</Button>
+        <Button>View All</Button>
       </StyledButtons>
 
       <StyledMedals>
-        <span>
-          <span>
-            <StarFilled style={{ color: "green" }} />
-          </span>
-          <span>
-            <StarFilled style={{ color: "green" }} />
-          </span>
-          <span>
-            <StarFilled style={{ color: "green" }} />
-          </span>
-          <span>
-            <StarFilled style={{ color: "green" }} />
-          </span>
-          <span>
-            <StarFilled style={{ color: "green", paddingRight: "0.5rem" }} />
-          </span>
-        </span>
-        <span>3519 Reviews</span>
-        <div> </div>
-        <span>
-          <img src="./Hero-Section/Hero-Medals (1).svg" alt="" />
-          <img src="./Hero-Section/Hero-Medals (2).svg" alt="" />
-          <img src="./Hero-Section/Hero-Medals (3).svg" alt="" />
-        </span>
+        <Space>
+          <StyledStarFilled />
+          <StyledStarFilled />
+          <StyledStarFilled />
+          <StyledStarFilled />
+          <StyledStarFilled />
+        </Space>
+
+        <Title level={5}>3519 Reviews</Title>
+
+        <Flex justify="space-between">
+          <Image width={100} src="./Hero-Section/Hero-Medals (1).svg" alt="" />
+          <Image width={100} src="./Hero-Section/Hero-Medals (2).svg" alt="" />
+          <Image width={100} src="./Hero-Section/Hero-Medals (3).svg" alt="" />
+        </Flex>
       </StyledMedals>
       <StyledContent>
         <Title level={4}>Mi Store</Title>

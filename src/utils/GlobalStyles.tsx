@@ -33,6 +33,14 @@ const GlobalStyles = () => {
  .ant-layout-footer{
 padding: 0;
  }
+ && .slick-prev::before, .slick-next::before {
+     color: orange;
+ }
+ h5.ant-typography{
+   font-size: 1rem;
+ }
+ 
+ 
 `;
 
   return <GlobalStyle />;

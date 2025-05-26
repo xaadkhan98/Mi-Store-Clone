@@ -20,7 +20,7 @@ export const TopbarLinks = styled(Space)`
   align-items: center;
   justify-content: space-between;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 880px) {
     display: none;
   }
 `;
@@ -55,6 +55,13 @@ export const StyledFlex = styled(Flex)`
   height: 25px;
   &&&.hwOxeg {
     height: 20px;
+  }
+
+  @media screen and (max-width: 501px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
   }
 `;
 

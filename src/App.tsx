@@ -1,6 +1,4 @@
-import { Outlet } from "react-router-dom";
 import "./App.css";
-import LayoutWrapper from "./components/Layout";
 // import AppRoutes from "./utils/routes";
 import { RouterProvider } from "react-router-dom";
 import AppRoutes from "./utils/routes";
