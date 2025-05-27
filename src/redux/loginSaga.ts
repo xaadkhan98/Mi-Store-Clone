@@ -1,7 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import { loginSaving, loginSaved, loginFailed } from "./loginSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { Navigate } from "react-router-dom";
 
 // Saga worker
 function* handleLogin({

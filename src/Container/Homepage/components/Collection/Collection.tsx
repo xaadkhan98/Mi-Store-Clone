@@ -1,11 +1,14 @@
+import { Typography } from "antd";
 import {
   StyledCol,
   StyledCollection,
   StyledFlex,
   StyledImage,
   StyledRow,
+  StyledText,
 } from "./Components/styles";
 
+const { Text } = Typography;
 const Collection = () => {
   return (
     <StyledCollection>
@@ -17,7 +20,7 @@ const Collection = () => {
               src="./Collection/website_icons_mobile-05.avif"
               alt=""
             />
-            <h4>Smartphones</h4>
+            <StyledText>Smartphones</StyledText>
           </StyledCol>
           <StyledCol span={4}>
             <StyledImage
@@ -25,7 +28,7 @@ const Collection = () => {
               src="./Collection/website_icons_mobile-12.avif"
               alt=""
             />
-            <h4>Gear & Devices</h4>
+            <StyledText>Gear & Devices</StyledText>
           </StyledCol>
           <StyledCol span={4}>
             <StyledImage
@@ -33,7 +36,7 @@ const Collection = () => {
               src="./Collection/website_icons_mobile-03.avif"
               alt=""
             />
-            <h4>Audio</h4>
+            <StyledText>Audio</StyledText>
           </StyledCol>
           <StyledCol span={4}>
             <StyledImage
@@ -41,7 +44,7 @@ const Collection = () => {
               src="./Collection/website_icons_mobile-10.avif"
               alt=""
             />
-            <h4>Camera & Visual</h4>
+            <StyledText>Camera & Visual</StyledText>
           </StyledCol>
           <StyledCol span={4}>
             <StyledImage
@@ -49,7 +52,7 @@ const Collection = () => {
               src="./Collection/website_icons_mobile-04.avif"
               alt=""
             />
-            <h4>Powerbank & Charging</h4>
+            <StyledText>Powerbank & Charging</StyledText>
           </StyledCol>
         </StyledRow>
       </StyledFlex>

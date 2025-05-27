@@ -47,7 +47,7 @@ const SlickSlider: React.FC = () => {
               >
                 <img src={images[0]} alt="" />
                 <Title level={5}>{name}</Title>
-                <Text>{price}</Text>
+                <Text>PKR {price}</Text>
               </Link>
             )
           );

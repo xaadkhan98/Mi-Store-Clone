@@ -59,7 +59,7 @@ const HeaderComponent: React.FC = () => {
   };
 
   return (
-    <>
+    <React.Fragment>
       <GlobalStyles />
       <StyledHeader
         onClick={onClick}
@@ -67,7 +67,7 @@ const HeaderComponent: React.FC = () => {
         mode="horizontal"
         items={items}
       />
-    </>
+    </React.Fragment>
   );
 };
 

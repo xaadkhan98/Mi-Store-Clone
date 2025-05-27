@@ -20,7 +20,7 @@ const Collections: React.FC = () => {
   const { categoryy } = useParams();
 
   return (
-    <>
+    <React.Fragment>
       <Title level={4}>
         {categoryy?.replace(/-/g, " ")?.toLocaleUpperCase()}
       </Title>
@@ -32,7 +32,7 @@ const Collections: React.FC = () => {
             return <Product {...product} />;
           })}
       </StyledProducts>
-    </>
+    </React.Fragment>
   );
 };
 

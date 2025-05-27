@@ -1,5 +1,7 @@
-import { Col, Space, Image, Row, Flex } from "antd";
+import { Col, Space, Image, Row, Flex, Typography } from "antd";
 import styled from "styled-components";
+
+const { Text } = Typography;
 
 export const StyledCollection = styled(Space)`
   width: 80%;
@@ -57,34 +59,13 @@ export const StyledRow = styled(Row)`
   }
 `;
 
-// export const StyledContent = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-around;
-//   border: 1;
-//   flex-direction: row;
-//   font-size: 0.875rem;
-//   padding: 20px 10px;
-//   border-radius: 0.625rem;
-//   box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
-//   margin-top: -30px;
-//   margin-bottom: 20px;
-//   z-index: 1000;
-//   position: relative;
-//   background-color: #fff;
-//   a {
-//     text-decoration: none;
-//     color: black;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     h4 {
-//       font-weight: 500;
-//       margin: 0;
-//     }
-//     img {
-//       max-width: 5rem;
-//     }
-//   }
-// `;
+export const StyledText = styled(Text)`
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
+  width: 100%;
+
+  @media screen and (max-width: 501px) {
+    font-size: 0.5rem;
+  }
+`;

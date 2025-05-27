@@ -90,7 +90,12 @@ const Checkout = () => {
             <ShoppingCartOutlined className="icon" />
             Checkout
           </StyledTitle>
-          <Table dataSource={data} columns={cols} pagination={false} />
+          <Table
+            scroll={{ x: 200 }}
+            dataSource={data}
+            columns={cols}
+            pagination={false}
+          />
 
           <StyledButton to="payment">Proceed to Payment</StyledButton>
         </>
