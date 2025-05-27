@@ -11,6 +11,7 @@ const { Title, Text } = Typography;
 
 const StyledSlick = styled.div`
   margin: 1rem;
+
   @media screen and (max-width: 501px) {
     display: none;
   }
